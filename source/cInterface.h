@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif // _FLI_GUARD_INTERFACE_H_
+#endif // _PAR_GUARD_INTERFACE_H_
