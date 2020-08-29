@@ -2,7 +2,7 @@
 
 Control multiple objects at once, fall into infinity, shoot beverages at each other, and try to win as many rounds as possible.
 
-Party Raider is a **short competitive platform shooter** made in less than 8 hours on [Mi'pu'mi][1] day with the jam theme "late partygoers".
+Party Raider is a **short competitive platform shooter** made in less than eight hours on [Mi'pu'mi][1] day with the jam theme "late partygoers".
 
 #
 
