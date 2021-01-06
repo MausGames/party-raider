@@ -31,7 +31,6 @@ void CoreApp::Setup()
     Core::Manager::Resource->Load<coreModel>  ("drink_mojito_straw.md5mesh",  CORE_RESOURCE_UPDATE_AUTO,   "data/models/drink_mojito_straw.md5mesh");
     Core::Manager::Resource->Load<coreModel>  ("drink_sunrise.md5mesh",       CORE_RESOURCE_UPDATE_AUTO,   "data/models/drink_sunrise.md5mesh");
     Core::Manager::Resource->Load<coreModel>  ("drink_sunrise_straw.md5mesh", CORE_RESOURCE_UPDATE_AUTO,   "data/models/drink_sunrise_straw.md5mesh");
-    Core::Manager::Resource->Load<coreModel>  ("object_sphere.md3",           CORE_RESOURCE_UPDATE_AUTO,   "data/models/object_sphere.md3");
 
     Core::Manager::Resource->Load<coreTexture>("drink_mojito.png",            CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_mojito.png");
     Core::Manager::Resource->Load<coreTexture>("drink_sunrise.png",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_sunrise.png");
