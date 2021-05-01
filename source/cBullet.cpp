@@ -86,21 +86,21 @@ void cBullet::Move()
 {
     m_vOldPos = this->GetPosition().xy();
 
-    m_vVelocity += coreVector2(0.0f,-0.3f) * (PLAYER_SPEED * PLAYER_ACCELERATION * Core::System->GetTime());
+    m_vVelocity += coreVector2(0.0f,-0.3f) * (PLAYER_SPEED * PLAYER_ACCELERATION * TIME);
     if(!m_vVelocity.IsNull())
     {
-        m_vVelocity.x *= POW(1.0f - PLAYER_BRAKE.x * 0.03f * (1.0f/60.0f), Core::System->GetTime() * 60.0f);
-        m_vVelocity.y *= POW(1.0f - PLAYER_BRAKE.y * 0.1f  * (1.0f/60.0f), Core::System->GetTime() * 60.0f);
+        m_vVelocity.x *= POW(1.0f - PLAYER_BRAKE.x * 0.03f * (1.0f/60.0f), TIME * 60.0f);
+        m_vVelocity.y *= POW(1.0f - PLAYER_BRAKE.y * 0.1f  * (1.0f/60.0f), TIME * 60.0f);
     }
 
-    const coreFloat   T    = Core::System->GetTime() * (PI * 5.0f);
+    const coreFloat   T    = TIME * (PI * 5.0f);
     const coreVector2 A    = coreVector2::Direction(T * m_vFlyRotation.y);
     const coreVector2 B    = coreVector2::Direction(T * m_vFlyRotation.x);
     const coreMatrix3 mRot = coreMatrix3( A.y,  A.x*B.x, -A.x*B.y,
                                          0.0f,      B.y,      B.x,
                                           A.x, -A.y*B.x,  A.y*B.y);
 
-    this->SetPosition   (coreVector3(this->GetPosition().xy() + m_vVelocity * Core::System->GetTime(), 0.0f));
+    this->SetPosition   (coreVector3(this->GetPosition().xy() + m_vVelocity * TIME, 0.0f));
     this->SetDirection  (this->GetDirection()   * mRot);
     this->SetOrientation(this->GetOrientation() * mRot);
 

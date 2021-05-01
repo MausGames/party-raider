@@ -15,8 +15,8 @@
 class cGame final
 {
 private:
-    std::vector<cPlayer*> m_apPlayer;
-    std::vector<cBullet*> m_apBullet;
+    coreList<cPlayer*> m_apPlayer;
+    coreList<cBullet*> m_apBullet;
 
     cInterface m_Interface;
 

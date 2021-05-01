@@ -41,7 +41,7 @@ void cPlayer::Move()
 
     coreVector2 vMove = coreVector2(0.0f,-1.0f);
 
-    if((g_pGame->GetTime() < GAME_TIME) && (g_pGame->GetTime() > 0.0f))
+    if((TIME < GAME_TIME) && (TIME > 0.0f))
     {
         bool        bShoot = false;
         coreVector2 vStick = coreVector2(0.0f,0.0f);
@@ -76,14 +76,14 @@ void cPlayer::Move()
         }
     }
 
-    m_vVelocity += vMove * (PLAYER_SPEED * PLAYER_ACCELERATION * Core::System->GetTime());
+    m_vVelocity += vMove * (PLAYER_SPEED * PLAYER_ACCELERATION * TIME);
     if(!m_vVelocity.IsNull())
     {
-        m_vVelocity.x *= POW(1.0f - PLAYER_BRAKE.x * (1.0f/60.0f), Core::System->GetTime() * 60.0f);
-        m_vVelocity.y *= POW(1.0f - PLAYER_BRAKE.y * (1.0f/60.0f), Core::System->GetTime() * 60.0f);
+        m_vVelocity.x *= POW(1.0f - PLAYER_BRAKE.x * (1.0f/60.0f), TIME * 60.0f);
+        m_vVelocity.y *= POW(1.0f - PLAYER_BRAKE.y * (1.0f/60.0f), TIME * 60.0f);
     }
 
-    coreVector2 vNewPos = this->GetPosition().xy() + m_vVelocity * Core::System->GetTime();
+    coreVector2 vNewPos = this->GetPosition().xy() + m_vVelocity * TIME;
 
          if((vNewPos.x >  (FIELD_SPACE.x * 0.5f - this->GetSize().x * 0.75f)) && (m_vVelocity.x > 0.0f)) vNewPos.x -=  FIELD_SPACE.x;
     else if((vNewPos.x < -(FIELD_SPACE.x * 0.5f + this->GetSize().x * 0.75f)) && (m_vVelocity.x < 0.0f)) vNewPos.x -= -FIELD_SPACE.x;
