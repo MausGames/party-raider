@@ -83,7 +83,7 @@ void cGame::Move()
     FOR_EACH(it, m_apPlayer) (*it)->Move();
     FOR_EACH(it, m_apBullet) (*it)->Move();
 
-    Core::Manager::Object->TestCollision(TYPE_PLAYER, TYPE_GROUND, [](cPlayer* OUTPUT pPlayer, coreObject3D* OUTPUT pGround, const coreVector3& vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_PLAYER, TYPE_GROUND, [](cPlayer* OUTPUT pPlayer, coreObject3D* OUTPUT pGround, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         const coreFloat fThreshold = pGround->GetPosition().y + pGround->GetSize().y * 0.5f + pPlayer->GetSize().y * 0.5f;
         if(pPlayer->GetOldPos().y >= fThreshold)
@@ -96,7 +96,7 @@ void cGame::Move()
         }
     });
 
-    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_GROUND, [](cBullet* OUTPUT pBullet, coreObject3D* OUTPUT pGround, const coreVector3& vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_GROUND, [](cBullet* OUTPUT pBullet, coreObject3D* OUTPUT pGround, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         const coreFloat fThreshold = pGround->GetPosition().y + pGround->GetSize().y * 0.5f;
         if(pBullet->GetOldPos().y >= fThreshold)
@@ -105,7 +105,7 @@ void cGame::Move()
         }
     });
 
-    Core::Manager::Object->TestCollision(TYPE_PLAYER, [](cPlayer* OUTPUT pPlayer1, cPlayer* OUTPUT pPlayer2, const coreVector3& vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_PLAYER, [](cPlayer* OUTPUT pPlayer1, cPlayer* OUTPUT pPlayer2, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         const coreVector2 vRange = pPlayer1->GetSize().xy() * 0.5f + pPlayer2->GetSize().xy() * 0.5f;
         const coreVector2 vDiff  = pPlayer1->GetPosition().xy()    - pPlayer2->GetPosition().xy();
@@ -138,7 +138,7 @@ void cGame::Move()
         }
     });
 
-    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_PLAYER, [this](cBullet* OUTPUT pBullet, cPlayer* OUTPUT pPlayer, const coreVector3& vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_PLAYER, [this](cBullet* OUTPUT pBullet, cPlayer* OUTPUT pPlayer, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         if(pBullet->GetOwner()->GetControl() == pPlayer->GetControl())
             return;
@@ -318,7 +318,7 @@ void cGame::EndIteration()
 
 
 // ****************************************************************
-RETURN_RESTRICT cPlayer* cGame::CreatePlayer(const coreVector3& vColor, const coreUint8 iControl)
+RETURN_RESTRICT cPlayer* cGame::CreatePlayer(const coreVector3 vColor, const coreUint8 iControl)
 {
     cPlayer* pPlayer = MANAGED_NEW(cPlayer);
 
@@ -347,7 +347,7 @@ void cGame::DeletePlayer(cPlayer* pPlayer)
 
 
 // ****************************************************************
-RETURN_RESTRICT cBullet* cGame::CreateBullet(cPlayer* pOwner, const coreVector2& vPosition, const coreVector2& vVelocity)
+RETURN_RESTRICT cBullet* cGame::CreateBullet(cPlayer* pOwner, const coreVector2 vPosition, const coreVector2 vVelocity)
 {
     cBullet* pBullet = MANAGED_NEW(cBullet);
 

@@ -41,10 +41,10 @@ public:
     void StartIteration();
     void EndIteration();
 
-    RETURN_RESTRICT cPlayer* CreatePlayer(const coreVector3& vColor, const coreUint8 iControl);
+    RETURN_RESTRICT cPlayer* CreatePlayer(const coreVector3 vColor, const coreUint8 iControl);
     void DeletePlayer(cPlayer* pPlayer);
 
-    RETURN_RESTRICT cBullet* CreateBullet(cPlayer* pOwner, const coreVector2& vPosition, const coreVector2& vVelocity);
+    RETURN_RESTRICT cBullet* CreateBullet(cPlayer* pOwner, const coreVector2 vPosition, const coreVector2 vVelocity);
     void DeleteBullet(cBullet* pBullet);
 
     coreUint8 RetrievePlayerCount(const coreUintW iIndex)const;

@@ -35,9 +35,9 @@ public:
 
     bool TakeDamage(const coreInt8 iDamage);
 
-    inline void SetControl (const coreUint8    iControl)  {m_iControl  = iControl;}
-    inline void SetVelocity(const coreVector2& vVelocity) {m_vVelocity = vVelocity;}
-    inline void SetAim     (const coreVector2& vAim)      {m_vAim      = vAim;}
+    inline void SetControl (const coreUint8   iControl)  {m_iControl  = iControl;}
+    inline void SetVelocity(const coreVector2 vVelocity) {m_vVelocity = vVelocity;}
+    inline void SetAim     (const coreVector2 vAim)      {m_vAim      = vAim;}
 
     inline const coreUint8&   GetControl ()const {return m_iControl;}
     inline const coreVector2& GetOldPos  ()const {return m_vOldPos;}

@@ -36,8 +36,8 @@ public:
     inline void RenderStraw() {m_Straw.Render();}
     inline void RenderGlass() {m_Glass.Render();}
 
-    inline void SetOwner   (cPlayer*           pOwner)    {m_pOwner    = pOwner;}
-    inline void SetVelocity(const coreVector2& vVelocity) {m_vVelocity = vVelocity;}
+    inline void SetOwner   (cPlayer*          pOwner)    {m_pOwner    = pOwner;}
+    inline void SetVelocity(const coreVector2 vVelocity) {m_vVelocity = vVelocity;}
 
     inline cPlayer*           GetOwner   ()const {return m_pOwner;}
     inline const coreVector2& GetOldPos  ()const {return m_vOldPos;}

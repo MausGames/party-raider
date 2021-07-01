@@ -41,7 +41,7 @@ void cPlayer::Move()
 
     coreVector2 vMove = coreVector2(0.0f,-1.0f);
 
-    if((TIME < GAME_TIME) && (TIME > 0.0f))
+    if((g_pGame->GetTime() < GAME_TIME) && (g_pGame->GetTime() > 0.0f))
     {
         bool        bShoot = false;
         coreVector2 vStick = coreVector2(0.0f,0.0f);
