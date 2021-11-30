@@ -12,9 +12,9 @@ Party Raider is a **multiplayer platform shooter** made in less than eight hours
 
 <table>
     <tr>
-        <td><a href="material/screenshots/par_screen_001.jpg?raw=true"><img src="material/screenshots/par_screen_001t.jpg" /></a></td>
-        <td><a href="material/screenshots/par_screen_002.jpg?raw=true"><img src="material/screenshots/par_screen_002t.jpg" /></a></td>
-        <td><a href="material/screenshots/par_screen_003.jpg?raw=true"><img src="material/screenshots/par_screen_003t.jpg" /></a></td>
+        <td><a href="material/screenshots/par_screen_001.jpg?raw=true"><img src="material/screenshots/par_screen_001t.jpg"></a></td>
+        <td><a href="material/screenshots/par_screen_002.jpg?raw=true"><img src="material/screenshots/par_screen_002t.jpg"></a></td>
+        <td><a href="material/screenshots/par_screen_003.jpg?raw=true"><img src="material/screenshots/par_screen_003t.jpg"></a></td>
     </tr>
 </table>
 
