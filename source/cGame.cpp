@@ -171,7 +171,7 @@ void cGame::StartIteration()
 {
     this->EndIteration();
 
-    m_iLastIteration = (m_iNumIteration < 2u) ? (m_iNumIteration + GAME_LEVELS) : ((m_iLastIteration + Core::Rand->Int(1, GAME_LEVELS-1)) % GAME_LEVELS);
+    m_iLastIteration = (m_iNumIteration < 2u) ? (m_iNumIteration + GAME_LEVELS) : ((m_iLastIteration + Core::Rand->Uint(1u, GAME_LEVELS-1u)) % GAME_LEVELS);
     ++m_iNumIteration;
 
     if(m_iLastIteration < GAME_LEVELS)

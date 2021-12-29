@@ -20,10 +20,10 @@ cBullet::cBullet()noexcept
     m_Straw.DefineProgram("drink_program");
     m_Glass.DefineProgram("glass_program");
 
-    switch(Core::Rand->Int(2))
+    switch(Core::Rand->Uint(2u))
     {
     default: ASSERT(false)
-    case 0:
+    case 0u:
         {
             this->DefineModel  ("drink_sunrise.md5mesh");
             this->DefineTexture(0, "drink_sunrise.png");
@@ -38,7 +38,7 @@ cBullet::cBullet()noexcept
         }
         break;
 
-    case 1:
+    case 1u:
         {
             this->DefineModel         ("drink_mojito.md5mesh");
             this->DefineTexture       (0u, "drink_mojito.png");
@@ -54,7 +54,7 @@ cBullet::cBullet()noexcept
         }
         break;
 
-    case 2:
+    case 2u:
         {
             this->DefineModel  ("drink_blue.md5mesh");
             this->DefineTexture(0u, "drink_blue.png");
