@@ -51,7 +51,7 @@ void cInterface::Move()
         m_aScore[i].Move();
     }
 
-    const coreFloat fTitle     = MAX(GAME_WAIT - (g_pGame->GetTime() - GAME_TIME - GAME_COUNTDOWN), 0.0f);
+    const coreFloat fTitle     = MAX0(GAME_WAIT - (g_pGame->GetTime() - GAME_TIME - GAME_COUNTDOWN));
     const coreFloat fTime      = CEIL(MIN(g_pGame->GetTime(), GAME_TIME));
     const coreFloat fCountdown = CEIL(g_pGame->GetTime() - GAME_TIME);
 
@@ -85,7 +85,7 @@ void cInterface::Move()
     else if(fTime <= 3.0f) m_Countdown.SetText(PRINT("%.0f", fTime));
     else                   m_Countdown.SetText("");
 
-    if(fTime > -GAME_DELAY) m_Time.SetText(PRINT("%.0f", MAX(fTime, 0.0f)));
+    if(fTime > -GAME_DELAY) m_Time.SetText(PRINT("%.0f", MAX0(fTime)));
 
     m_Title.SetPosition(coreVector2(m_Title.GetPosition().x, 0.095f - POW(fTitle * 2.0f, 2.0f)));
 
