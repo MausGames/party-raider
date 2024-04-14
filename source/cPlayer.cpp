@@ -19,7 +19,7 @@ cPlayer::cPlayer()noexcept
 , m_iHealth   (PLAYER_HEALTH)
 {
     this->DefineModel  ("default_cube.md3");
-    this->DefineTexture(0u, "default_white.png");
+    this->DefineTexture(0u, "default_white.webp");
     this->DefineProgram("object_program");
 
     this->ChangeType(TYPE_PLAYER);
@@ -48,22 +48,22 @@ void cPlayer::Move()
 
         if(m_iControl == 0u)
         {
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(D), CORE_INPUT_HOLD)) vMove.x += 1.0f;
-            else if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(A), CORE_INPUT_HOLD)) vMove.x -= 1.0f;
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(W), CORE_INPUT_HOLD)) bShoot = true;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(D), CORE_INPUT_HOLD)) vMove.x += 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(A), CORE_INPUT_HOLD)) vMove.x -= 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(W), CORE_INPUT_HOLD)) bShoot = true;
 
             if(Core::Input->GetJoystickButton(0u, 0u, CORE_INPUT_HOLD) || Core::Input->GetJoystickButton(0u, 1u, CORE_INPUT_HOLD)) bShoot = true;
-            vStick = Core::Input->GetJoystickRelativeL(0u);
+            vStick = Core::Input->GetJoystickStickL(0u);
 
         }
         else if(m_iControl == 1u)
         {
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(RIGHT), CORE_INPUT_HOLD)) vMove.x += 1.0f;
-            else if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(LEFT),  CORE_INPUT_HOLD)) vMove.x -= 1.0f;
-                 if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(UP),    CORE_INPUT_HOLD)) bShoot = true;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(RIGHT), CORE_INPUT_HOLD)) vMove.x += 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(LEFT),  CORE_INPUT_HOLD)) vMove.x -= 1.0f;
+            if(Core::Input->GetKeyboardButton(CORE_INPUT_KEY(UP),    CORE_INPUT_HOLD)) bShoot = true;
 
             if(Core::Input->GetJoystickButton(1u, 0u, CORE_INPUT_HOLD) || Core::Input->GetJoystickButton(1u, 1u, CORE_INPUT_HOLD)) bShoot = true;
-            vStick = Core::Input->GetJoystickRelativeL(1u);
+            vStick = Core::Input->GetJoystickStickL(1u);
         }
 
         vMove.x += vStick.x;

@@ -266,7 +266,7 @@ void cGame::StartIteration()
         }
         break;
 
-    default: ASSERT(false)
+    default: UNREACHABLE
     case 6u:
         {
             iCount = 1u;

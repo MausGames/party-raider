@@ -9,16 +9,22 @@
 
 // ****************************************************************
 // project settings
-const coreChar* const CoreApp::Settings::Name                   = "Party Raider";
-const coreChar* const CoreApp::Settings::IconPath               = "data/textures/game_icon.png";
-const coreChar* const CoreApp::Settings::CursorPath             = "data/textures/default_cursor.png";
-const coreBool        CoreApp::Settings::UserManagement         = false;
-const coreUint8       CoreApp::Settings::Graphics::DepthSize    = 16u;
-const coreUint8       CoreApp::Settings::Graphics::StencilSize  = 0u;
-const coreBool        CoreApp::Settings::Graphics::AlphaChannel = false;
-const coreBool        CoreApp::Settings::Graphics::DoubleBuffer = true;
-const coreBool        CoreApp::Settings::Graphics::StereoRender = false;
-const coreUint32      CoreApp::Settings::Platform::SteamAppID   = 0u;
+const coreChar* const CoreApp::Settings::Name                          = "Party Raider";
+const coreChar* const CoreApp::Settings::Version                       = "1.0.0";
+const coreChar* const CoreApp::Settings::IconPath                      = "data/textures/game_icon.webp";
+const coreChar* const CoreApp::Settings::CursorPath                    = "data/textures/default_cursor.webp";
+const coreBool        CoreApp::Settings::UserManagement                = false;
+const coreUint8       CoreApp::Settings::Graphics::DepthSize           = 16u;
+const coreUint8       CoreApp::Settings::Graphics::StencilSize         = 0u;
+const coreBool        CoreApp::Settings::Graphics::AlphaChannel        = false;
+const coreBool        CoreApp::Settings::Graphics::DoubleBuffer        = true;
+const coreBool        CoreApp::Settings::Graphics::StereoRender        = false;
+const coreUint32      CoreApp::Settings::Platform::SteamAppID          = 0u;
+const coreChar* const CoreApp::Settings::Platform::EpicProductID       = NULL;
+const coreChar* const CoreApp::Settings::Platform::EpicSandboxID   [3] = {NULL, NULL, NULL};
+const coreChar* const CoreApp::Settings::Platform::EpicDeploymentID[3] = {NULL, NULL, NULL};
+const coreChar* const CoreApp::Settings::Platform::EpicClientID        = NULL;
+const coreChar* const CoreApp::Settings::Platform::EpicClientSecret    = NULL;
 
 
 // ****************************************************************
@@ -34,10 +40,10 @@ void CoreApp::Setup()
     Core::Manager::Resource->Load<coreModel>  ("drink_sunrise.md5mesh",       CORE_RESOURCE_UPDATE_AUTO,   "data/models/drink_sunrise.md5mesh");
     Core::Manager::Resource->Load<coreModel>  ("drink_sunrise_straw.md5mesh", CORE_RESOURCE_UPDATE_AUTO,   "data/models/drink_sunrise_straw.md5mesh", CORE_MODEL_LOAD_NO_CLUSTERS);
 
-    Core::Manager::Resource->Load<coreTexture>("drink_mojito.png",            CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_mojito.png");
-    Core::Manager::Resource->Load<coreTexture>("drink_sunrise.png",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_sunrise.png");
-    Core::Manager::Resource->Load<coreTexture>("drink_citrus.png",            CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_citrus.png");
-    Core::Manager::Resource->Load<coreTexture>("drink_blue.png",              CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_blue.png");
+    Core::Manager::Resource->Load<coreTexture>("drink_mojito.webp",            CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_mojito.webp");
+    Core::Manager::Resource->Load<coreTexture>("drink_sunrise.webp",           CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_sunrise.webp");
+    Core::Manager::Resource->Load<coreTexture>("drink_citrus.webp",            CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_citrus.webp");
+    Core::Manager::Resource->Load<coreTexture>("drink_blue.webp",              CORE_RESOURCE_UPDATE_AUTO,   "data/textures/drink_blue.webp");
 
     Core::Manager::Resource->Load<coreShader> ("drink.vert",                  CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/drink.vert");
     Core::Manager::Resource->Load<coreShader> ("drink.frag",                  CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/drink.frag");

@@ -19,6 +19,8 @@ void CoreApp::Init()
     Core::Graphics->SetCamera(CAMERA_POSITION, CAMERA_DIRECTION, CAMERA_ORIENTATION);
     Core::Graphics->SetView(coreVector2(1.0f,1.0f) * Core::System->GetResolution().Min(), DEG_TO_RAD(45.0f), 50.0f, 500.0f);
 
+    Core::System->SetWindowAll(Core::System->GetDisplayIndex(), coreVector2(900.0f,900.0f), CORE_SYSTEM_MODE_WINDOWED);
+
     STATIC_NEW(g_pField)
     STATIC_NEW(g_pGame)
 }
