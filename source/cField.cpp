@@ -17,7 +17,7 @@ cField::cField()noexcept
 
     for(coreUintW i = 0u; i < FIELD_GROUNDS; ++i)
     {
-        m_aGround[i].DefineModel  ("default_cube.md3");
+        m_aGround[i].DefineModel  ("default_cube.md3z");
         m_aGround[i].DefineTexture(0u, "default_white.webp");
         m_aGround[i].DefineProgram("object_program");
         m_aGround[i].SetDirection (coreVector3(0.0f,1.0f,0.0f));

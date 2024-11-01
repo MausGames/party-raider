@@ -18,7 +18,7 @@ cPlayer::cPlayer()noexcept
 , m_fCooldown (0.0f)
 , m_iHealth   (PLAYER_HEALTH)
 {
-    this->DefineModel  ("default_cube.md3");
+    this->DefineModel  ("default_cube.md3z");
     this->DefineTexture(0u, "default_white.webp");
     this->DefineProgram("object_program");
 

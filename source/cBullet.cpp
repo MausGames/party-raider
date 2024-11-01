@@ -25,46 +25,46 @@ cBullet::cBullet()noexcept
     default: UNREACHABLE
     case 0u:
         {
-            this->DefineModel  ("drink_sunrise.md5mesh");
+            this->DefineModel  ("drink_sunrise.md5z");
             this->DefineTexture(0, "drink_sunrise.webp");
             this->SetSize      (coreVector3(1.0f,1.0f,1.0f));
             this->SetAlpha     (0.91f);
 
-            m_Straw.DefineModel  ("drink_sunrise_straw.md5mesh");
+            m_Straw.DefineModel  ("drink_sunrise_straw.md5z");
             m_Straw.DefineTexture(0u, "default_black.webp");
 
-            m_Glass.DefineModel  ("drink_sunrise.md5mesh");
+            m_Glass.DefineModel  ("drink_sunrise.md5z");
             m_Glass.DefineTexture(0u, "drink_sunrise.webp");
         }
         break;
 
     case 1u:
         {
-            this->DefineModel         ("drink_mojito.md5mesh");
+            this->DefineModel         ("drink_mojito.md5z");
             this->DefineTexture       (0u, "drink_mojito.webp");
             this->SetSize             (coreVector3(1.0f,1.0f,1.0f) * 1.08f);
             this->SetCollisionModifier(coreVector3(1.3f,1.3f,1.3f));
             this->SetAlpha            (0.85f);
 
-            m_Straw.DefineModel  ("drink_mojito_straw.md5mesh");
+            m_Straw.DefineModel  ("drink_mojito_straw.md5z");
             m_Straw.DefineTexture(0u, "default_black.webp");
 
-            m_Glass.DefineModel  ("drink_mojito.md5mesh");
+            m_Glass.DefineModel  ("drink_mojito.md5z");
             m_Glass.DefineTexture(0u, "drink_mojito.webp");
         }
         break;
 
     case 2u:
         {
-            this->DefineModel  ("drink_blue.md5mesh");
+            this->DefineModel  ("drink_blue.md5z");
             this->DefineTexture(0u, "drink_blue.webp");
             this->SetSize      (coreVector3(1.0f,1.0f,1.0f) * 1.16f);
             this->SetAlpha     (0.87f);
 
-            m_Straw.DefineModel  ("drink_blue_straw.md5mesh");
+            m_Straw.DefineModel  ("drink_blue_straw.md5z");
             m_Straw.DefineTexture(0u, "drink_citrus.webp");
 
-            m_Glass.DefineModel  ("drink_blue_glass.md5mesh");
+            m_Glass.DefineModel  ("drink_blue_glass.md5z");
             m_Glass.DefineTexture(0u, "drink_blue.webp");
         }
         break;
