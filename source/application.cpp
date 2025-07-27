@@ -55,8 +55,8 @@ void CoreApp::Setup()
 
     Core::Manager::Resource->Load<coreShader> ("drink.vert",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/drink.vert");
     Core::Manager::Resource->Load<coreShader> ("drink.frag",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/drink.frag");
-    Core::Manager::Resource->Load<coreShader> ("field.vert",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/field.vert");
-    Core::Manager::Resource->Load<coreShader> ("field.frag",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/field.frag");
+    Core::Manager::Resource->Load<coreShader> ("field.vert",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/field.vert", CORE_SHADER_OPTION_NO_PERSPECTIVE);
+    Core::Manager::Resource->Load<coreShader> ("field.frag",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/field.frag", CORE_SHADER_OPTION_NO_PERSPECTIVE);
     Core::Manager::Resource->Load<coreShader> ("glass.vert",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/glass.vert");
     Core::Manager::Resource->Load<coreShader> ("glass.frag",               CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/glass.frag");
     Core::Manager::Resource->Load<coreShader> ("object.vert",              CORE_RESOURCE_UPDATE_MANUAL, "data/shaders/object.vert");
