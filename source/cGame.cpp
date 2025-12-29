@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cGame::cGame()noexcept
+CGame::CGame()noexcept
 : m_aiScore        {}
 , m_iNumIteration  (0u)
 , m_iLastIteration (0u)
@@ -22,14 +22,14 @@ cGame::cGame()noexcept
 
 
 // ****************************************************************
-cGame::~cGame()
+CGame::~CGame()
 {
     this->EndIteration();
 }
 
 
 // ****************************************************************
-void cGame::Render()
+void CGame::Render()
 {
     FOR_EACH(it, m_apPlayer)
     {
@@ -68,7 +68,7 @@ void cGame::Render()
 
 
 // ****************************************************************
-void cGame::Move()
+void CGame::Move()
 {
     if(Core::Input->GetAnyButton(CORE_INPUT_PRESS) && !Core::Input->GetKeyboardButton(CORE_INPUT_KEY(SPACE), CORE_INPUT_PRESS))
     {
@@ -83,7 +83,7 @@ void cGame::Move()
     FOR_EACH(it, m_apPlayer) (*it)->Move();
     FOR_EACH(it, m_apBullet) (*it)->Move();
 
-    Core::Manager::Object->TestCollision(TYPE_PLAYER, TYPE_GROUND, [](cPlayer* OUTPUT pPlayer, coreObject3D* OUTPUT pGround, const coreVector3 vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_PLAYER, TYPE_GROUND, [](CPlayer* OUTPUT pPlayer, coreObject3D* OUTPUT pGround, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         const coreFloat fThreshold = pGround->GetPosition().y + pGround->GetSize().y * 0.5f + pPlayer->GetSize().y * 0.5f;
         if(pPlayer->GetOldPos().y >= fThreshold)
@@ -96,7 +96,7 @@ void cGame::Move()
         }
     });
 
-    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_GROUND, [](cBullet* OUTPUT pBullet, coreObject3D* OUTPUT pGround, const coreVector3 vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_GROUND, [](CBullet* OUTPUT pBullet, coreObject3D* OUTPUT pGround, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         const coreFloat fThreshold = pGround->GetPosition().y + pGround->GetSize().y * 0.5f;
         if(pBullet->GetOldPos().y >= fThreshold)
@@ -105,7 +105,7 @@ void cGame::Move()
         }
     });
 
-    Core::Manager::Object->TestCollision(TYPE_PLAYER, [](cPlayer* OUTPUT pPlayer1, cPlayer* OUTPUT pPlayer2, const coreVector3 vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_PLAYER, [](CPlayer* OUTPUT pPlayer1, CPlayer* OUTPUT pPlayer2, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         const coreVector2 vRange = pPlayer1->GetSize().xy() * 0.5f + pPlayer2->GetSize().xy() * 0.5f;
         const coreVector2 vDiff  = pPlayer1->GetPosition().xy()    - pPlayer2->GetPosition().xy();
@@ -138,7 +138,7 @@ void cGame::Move()
         }
     });
 
-    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_PLAYER, [this](cBullet* OUTPUT pBullet, cPlayer* OUTPUT pPlayer, const coreVector3 vIntersection, const coreBool bFirstHit)
+    Core::Manager::Object->TestCollision(TYPE_BULLET, TYPE_PLAYER, [this](CBullet* OUTPUT pBullet, CPlayer* OUTPUT pPlayer, const coreVector3 vIntersection, const coreBool bFirstHit)
     {
         if(pBullet->GetOwner()->GetControl() == pPlayer->GetControl())
             return;
@@ -167,7 +167,7 @@ void cGame::Move()
 
 
 // ****************************************************************
-void cGame::StartIteration()
+void CGame::StartIteration()
 {
     this->EndIteration();
 
@@ -181,7 +181,7 @@ void cGame::StartIteration()
     }
 
     coreUint8 iCount;
-    void (*nSetFunc)(cPlayer* OUTPUT, const coreUintW, const coreUintW);
+    void (*nSetFunc)(CPlayer* OUTPUT, const coreUintW, const coreUintW);
     switch(m_iLastIteration)
     {
     case 0u:
@@ -190,7 +190,7 @@ void cGame::StartIteration()
             g_pField->EnableGround(5u, true);
 
             iCount = 3u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.5f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.5f * I_TO_F(1u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -205,7 +205,7 @@ void cGame::StartIteration()
             g_pField->EnableGround(7u, true);
 
             iCount = 2u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.5f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f) * ((iIndex == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.5f * I_TO_F(0u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -221,7 +221,7 @@ void cGame::StartIteration()
             g_pField->EnableGround(7u, true);
 
             iCount = 3u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.3f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.5f * I_TO_F(1u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -235,7 +235,7 @@ void cGame::StartIteration()
             g_pField->EnableGround(5u, true);
 
             iCount = 3u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.3f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.5f * I_TO_F(1u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -245,7 +245,7 @@ void cGame::StartIteration()
     case 4u:
         {
             iCount = 5u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.5f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.25f * I_TO_F(2u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -259,7 +259,7 @@ void cGame::StartIteration()
             g_pField->EnableGround(7u, true);
 
             iCount = 3u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.5f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f) * ((iIndex == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.5f * I_TO_F(1u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -270,7 +270,7 @@ void cGame::StartIteration()
     case 6u:
         {
             iCount = 1u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.5f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f), pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -280,7 +280,7 @@ void cGame::StartIteration()
     case 7u:
         {
             iCount = 3u;
-            nSetFunc = [](cPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
+            nSetFunc = [](CPlayer* OUTPUT pPlayer, const coreUintW iIndex, const coreUintW iType)
             {
                 pPlayer->SetPosition(coreVector3((FIELD_SIZE.x * 0.5f - 6.0f) * ((iType == 0u) ? -1.0f : 1.0f), FIELD_SIZE.y * (0.5f * I_TO_F(1u-iIndex)) + pPlayer->GetSize().y * 0.5f + 8.0f, 0.0f));
             };
@@ -290,7 +290,7 @@ void cGame::StartIteration()
 
     for(coreUintW i = 0u; i < iCount; ++i)
     {
-        cPlayer* pPlayer = this->CreatePlayer(COLOR_PLAYER_1, 0u);
+        CPlayer* pPlayer = this->CreatePlayer(COLOR_PLAYER_1, 0u);
         pPlayer->SetAim(coreVector2(1.5f, 0.5f).Normalized());
 
         nSetFunc(pPlayer, i, 0u);
@@ -298,7 +298,7 @@ void cGame::StartIteration()
 
     for(coreUintW i = 0u; i < iCount; ++i)
     {
-        cPlayer* pPlayer = this->CreatePlayer(COLOR_PLAYER_2, 1u);
+        CPlayer* pPlayer = this->CreatePlayer(COLOR_PLAYER_2, 1u);
         pPlayer->SetAim(coreVector2(-1.5f, 0.5f).Normalized());
 
         nSetFunc(pPlayer, i, 1u);
@@ -307,7 +307,7 @@ void cGame::StartIteration()
 
 
 // ****************************************************************
-void cGame::EndIteration()
+void CGame::EndIteration()
 {
     FOR_EACH(it, m_apPlayer) MANAGED_DELETE(*it)
     FOR_EACH(it, m_apBullet) MANAGED_DELETE(*it)
@@ -318,9 +318,9 @@ void cGame::EndIteration()
 
 
 // ****************************************************************
-RETURN_RESTRICT cPlayer* cGame::CreatePlayer(const coreVector3 vColor, const coreUint8 iControl)
+RETURN_RESTRICT CPlayer* CGame::CreatePlayer(const coreVector3 vColor, const coreUint8 iControl)
 {
-    cPlayer* pPlayer = MANAGED_NEW(cPlayer);
+    CPlayer* pPlayer = MANAGED_NEW(CPlayer);
 
     pPlayer->SetColor3 (vColor);
     pPlayer->SetControl(iControl);
@@ -331,7 +331,7 @@ RETURN_RESTRICT cPlayer* cGame::CreatePlayer(const coreVector3 vColor, const cor
 
 
 // ****************************************************************
-void cGame::DeletePlayer(cPlayer* pPlayer)
+void CGame::DeletePlayer(CPlayer* pPlayer)
 {
     FOR_EACH(it, m_apPlayer)
     {
@@ -347,9 +347,9 @@ void cGame::DeletePlayer(cPlayer* pPlayer)
 
 
 // ****************************************************************
-RETURN_RESTRICT cBullet* cGame::CreateBullet(cPlayer* pOwner, const coreVector2 vPosition, const coreVector2 vVelocity)
+RETURN_RESTRICT CBullet* CGame::CreateBullet(CPlayer* pOwner, const coreVector2 vPosition, const coreVector2 vVelocity)
 {
-    cBullet* pBullet = MANAGED_NEW(cBullet);
+    CBullet* pBullet = MANAGED_NEW(CBullet);
 
     pBullet->SetPosition(coreVector3(vPosition, 0.0f));
     pBullet->SetOwner   (pOwner);
@@ -361,7 +361,7 @@ RETURN_RESTRICT cBullet* cGame::CreateBullet(cPlayer* pOwner, const coreVector2 
 
 
 // ****************************************************************
-void cGame::DeleteBullet(cBullet* pBullet)
+void CGame::DeleteBullet(CBullet* pBullet)
 {
     FOR_EACH(it, m_apBullet)
     {
@@ -377,7 +377,7 @@ void cGame::DeleteBullet(cBullet* pBullet)
 
 
 // ****************************************************************
-coreUint8 cGame::RetrievePlayerCount(const coreUintW iIndex)const
+coreUint8 CGame::RetrievePlayerCount(const coreUintW iIndex)const
 {
     coreUint8 iCount = 0u;
 

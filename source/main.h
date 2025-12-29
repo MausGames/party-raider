@@ -83,8 +83,8 @@ enum eType : coreInt32
 
 // ****************************************************************
 // global variables
-extern cField* const g_pField;
-extern cGame*  const g_pGame;
+extern CField* const g_pField;
+extern CGame*  const g_pGame;
 
 
 #endif // _PAR_GUARD_MAIN_H_

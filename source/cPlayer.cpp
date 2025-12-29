@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cPlayer::cPlayer()noexcept
+CPlayer::CPlayer()noexcept
 : m_iControl  (PLAYER_CONTROL_NONE)
 , m_vOldPos   (coreVector2(FLT_MAX,FLT_MAX))
 , m_vVelocity (coreVector2(0.0f,0.0f))
@@ -27,14 +27,14 @@ cPlayer::cPlayer()noexcept
 
 
 // ****************************************************************
-void cPlayer::Render()
+void CPlayer::Render()
 {
     this->coreObject3D::Render();
 }
 
 
 // ****************************************************************
-void cPlayer::Move()
+void CPlayer::Move()
 {
     m_vOldPos = this->GetPosition().xy();
     m_fCooldown.UpdateMax(-PLAYER_SHOOT_RATE, 0.0f);
@@ -98,7 +98,7 @@ void cPlayer::Move()
 
 
 // ****************************************************************
-bool cPlayer::TakeDamage(const coreInt8 iDamage)
+bool CPlayer::TakeDamage(const coreInt8 iDamage)
 {
     m_iHealth -= iDamage;
     return (m_iHealth <= 0);

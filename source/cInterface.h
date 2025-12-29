@@ -12,7 +12,7 @@
 
 
 // ****************************************************************
-class cInterface final
+class CInterface final
 {
 private:
     coreLabel m_aScore[PLAYERS];
@@ -23,9 +23,9 @@ private:
 
 
 public:
-    cInterface()noexcept;
+    CInterface()noexcept;
 
-    DISABLE_COPY(cInterface)
+    DISABLE_COPY(CInterface)
 
     void Render();
     void Move();

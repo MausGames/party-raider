@@ -12,7 +12,7 @@
 
 
 // ****************************************************************
-class cPlayer final : public coreObject3D
+class CPlayer final : public coreObject3D
 {
 private:
     coreUint8 m_iControl;
@@ -26,9 +26,9 @@ private:
 
 
 public:
-    cPlayer()noexcept;
+    CPlayer()noexcept;
 
-    ENABLE_COPY(cPlayer)
+    ENABLE_COPY(CPlayer)
 
     void Render()final;
     void Move  ()final;

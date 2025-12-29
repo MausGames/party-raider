@@ -12,10 +12,10 @@
 
 
 // ****************************************************************
-class cBullet final : public coreObject3D
+class CBullet final : public coreObject3D
 {
 private:
-    cPlayer* m_pOwner;
+    CPlayer* m_pOwner;
 
     coreVector2 m_vOldPos;
     coreVector2 m_vVelocity;
@@ -26,9 +26,9 @@ private:
 
 
 public:
-    cBullet()noexcept;
+    CBullet()noexcept;
 
-    ENABLE_COPY(cBullet)
+    ENABLE_COPY(CBullet)
 
     void Render()final;
     void Move  ()final;
@@ -36,10 +36,10 @@ public:
     inline void RenderStraw() {m_Straw.Render();}
     inline void RenderGlass() {m_Glass.Render();}
 
-    inline void SetOwner   (cPlayer*          pOwner)    {m_pOwner    = pOwner;}
+    inline void SetOwner   (CPlayer*          pOwner)    {m_pOwner    = pOwner;}
     inline void SetVelocity(const coreVector2 vVelocity) {m_vVelocity = vVelocity;}
 
-    inline cPlayer*           GetOwner   ()const {return m_pOwner;}
+    inline CPlayer*           GetOwner   ()const {return m_pOwner;}
     inline const coreVector2& GetOldPos  ()const {return m_vOldPos;}
     inline const coreVector2& GetVelocity()const {return m_vVelocity;}
 };

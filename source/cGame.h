@@ -12,13 +12,13 @@
 
 
 // ****************************************************************
-class cGame final
+class CGame final
 {
 private:
-    coreList<cPlayer*> m_apPlayer;
-    coreList<cBullet*> m_apBullet;
+    coreList<CPlayer*> m_apPlayer;
+    coreList<CBullet*> m_apBullet;
 
-    cInterface m_Interface;
+    CInterface m_Interface;
 
     coreUint8 m_aiScore[PLAYERS];
 
@@ -30,10 +30,10 @@ private:
 
 
 public:
-    cGame()noexcept;
-    ~cGame();
+    CGame()noexcept;
+    ~CGame();
 
-    DISABLE_COPY(cGame)
+    DISABLE_COPY(CGame)
 
     void Render();
     void Move();
@@ -41,11 +41,11 @@ public:
     void StartIteration();
     void EndIteration();
 
-    RETURN_RESTRICT cPlayer* CreatePlayer(const coreVector3 vColor, const coreUint8 iControl);
-    void DeletePlayer(cPlayer* pPlayer);
+    RETURN_RESTRICT CPlayer* CreatePlayer(const coreVector3 vColor, const coreUint8 iControl);
+    void DeletePlayer(CPlayer* pPlayer);
 
-    RETURN_RESTRICT cBullet* CreateBullet(cPlayer* pOwner, const coreVector2 vPosition, const coreVector2 vVelocity);
-    void DeleteBullet(cBullet* pBullet);
+    RETURN_RESTRICT CBullet* CreateBullet(CPlayer* pOwner, const coreVector2 vPosition, const coreVector2 vVelocity);
+    void DeleteBullet(CBullet* pBullet);
 
     coreUint8 RetrievePlayerCount(const coreUintW iIndex)const;
 

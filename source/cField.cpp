@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cField::cField()noexcept
+CField::CField()noexcept
 {
     this->DefineProgram("field_program");
     this->SetSize(coreVector2(1.0f,1.0f));
@@ -46,7 +46,7 @@ cField::cField()noexcept
 
 
 // ****************************************************************
-void cField::Render()
+void CField::Render()
 {
     for(coreUintW i = 0u; i < FIELD_GROUNDS; ++i)
         m_aGround[i].Render();
@@ -56,7 +56,7 @@ void cField::Render()
 
 
 // ****************************************************************
-void cField::Move()
+void CField::Move()
 {
     for(coreUintW i = 0u; i < FIELD_GROUNDS; ++i)
         m_aGround[i].Move();
@@ -66,7 +66,7 @@ void cField::Move()
 
 
 // ****************************************************************
-void cField::EnableGround(const coreUintW iIndex, const coreBool bEnabled)
+void CField::EnableGround(const coreUintW iIndex, const coreBool bEnabled)
 {
     ASSERT(iIndex < FIELD_GROUNDS)
 

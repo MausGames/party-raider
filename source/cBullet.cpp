@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cBullet::cBullet()noexcept
+CBullet::CBullet()noexcept
 : m_pOwner       (NULL)
 , m_vOldPos      (coreVector2(FLT_MAX,FLT_MAX))
 , m_vVelocity    (coreVector2(0.0f,0.0f))
@@ -75,14 +75,14 @@ cBullet::cBullet()noexcept
 
 
 // ****************************************************************
-void cBullet::Render()
+void CBullet::Render()
 {
     this->coreObject3D::Render();
 }
 
 
 // ****************************************************************
-void cBullet::Move()
+void CBullet::Move()
 {
     m_vOldPos = this->GetPosition().xy();
 

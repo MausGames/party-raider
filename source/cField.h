@@ -12,16 +12,16 @@
 
 
 // ****************************************************************
-class cField final : public coreObject2D
+class CField final : public coreObject2D
 {
 private:
     coreObject3D m_aGround[FIELD_GROUNDS];
 
 
 public:
-    cField()noexcept;
+    CField()noexcept;
 
-    DISABLE_COPY(cField)
+    DISABLE_COPY(CField)
 
     void Render()final;
     void Move  ()final;

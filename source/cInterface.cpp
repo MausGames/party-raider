@@ -10,7 +10,7 @@
 
 
 // ****************************************************************
-cInterface::cInterface()noexcept
+CInterface::CInterface()noexcept
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
@@ -31,7 +31,7 @@ cInterface::cInterface()noexcept
 
 
 // ****************************************************************
-void cInterface::Render()
+void CInterface::Render()
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
         m_aScore[i].Render();
@@ -43,7 +43,7 @@ void cInterface::Render()
 
 
 // ****************************************************************
-void cInterface::Move()
+void CInterface::Move()
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
