@@ -11,7 +11,10 @@
 
 // ****************************************************************
 CGame::CGame()noexcept
-: m_aiScore        {}
+: m_apPlayer       {}
+, m_apBullet       {}
+, m_Interface      ()
+, m_aiScore        {}
 , m_iNumIteration  (0u)
 , m_iLastIteration (0u)
 , m_fTime          (GAME_TIME + GAME_COUNTDOWN + GAME_WAIT)

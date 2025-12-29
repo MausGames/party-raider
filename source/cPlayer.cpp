@@ -11,12 +11,13 @@
 
 // ****************************************************************
 CPlayer::CPlayer()noexcept
-: m_iControl  (PLAYER_CONTROL_NONE)
-, m_vOldPos   (coreVector2(FLT_MAX,FLT_MAX))
-, m_vVelocity (coreVector2(0.0f,0.0f))
-, m_vAim      (coreVector2(0.0f,0.0f))
-, m_fCooldown (0.0f)
-, m_iHealth   (PLAYER_HEALTH)
+: coreObject3D ()
+, m_iControl   (PLAYER_CONTROL_NONE)
+, m_vOldPos    (coreVector2(FLT_MAX,FLT_MAX))
+, m_vVelocity  (coreVector2(0.0f,0.0f))
+, m_vAim       (coreVector2(0.0f,0.0f))
+, m_fCooldown  (0.0f)
+, m_iHealth    (PLAYER_HEALTH)
 {
     this->DefineModel  ("default_cube.md3z");
     this->DefineTexture(0u, "default_white.webp");

@@ -11,6 +11,8 @@
 
 // ****************************************************************
 CField::CField()noexcept
+: coreObject2D ()
+, m_aGround    {}
 {
     this->DefineProgram("field_program");
     this->SetSize(coreVector2(1.0f,1.0f));

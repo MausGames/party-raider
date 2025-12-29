@@ -11,10 +11,13 @@
 
 // ****************************************************************
 CBullet::CBullet()noexcept
-: m_pOwner       (NULL)
+: coreObject3D   ()
+, m_pOwner       (NULL)
 , m_vOldPos      (coreVector2(FLT_MAX,FLT_MAX))
 , m_vVelocity    (coreVector2(0.0f,0.0f))
 , m_vFlyRotation (coreVector2::Rand())
+, m_Straw        ()
+, m_Glass        ()
 {
     this  ->DefineProgram("drink_program");
     m_Straw.DefineProgram("drink_program");

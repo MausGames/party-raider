@@ -11,6 +11,10 @@
 
 // ****************************************************************
 CInterface::CInterface()noexcept
+: m_aScore    {}
+, m_Title     ()
+, m_Time      ()
+, m_Countdown ()
 {
     for(coreUintW i = 0u; i < PLAYERS; ++i)
     {
