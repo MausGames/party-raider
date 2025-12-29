@@ -80,8 +80,8 @@ void CPlayer::Move()
     m_vVelocity += vMove * (PLAYER_SPEED * PLAYER_ACCELERATION * TIME);
     if(!m_vVelocity.IsNull())
     {
-        m_vVelocity.x *= POW(1.0f - PLAYER_BRAKE.x * (1.0f/60.0f), TIME * 60.0f);
-        m_vVelocity.y *= POW(1.0f - PLAYER_BRAKE.y * (1.0f/60.0f), TIME * 60.0f);
+        m_vVelocity.x *= coreMath::Friction(PLAYER_BRAKE.x, TIME);
+        m_vVelocity.y *= coreMath::Friction(PLAYER_BRAKE.y, TIME);
     }
 
     coreVector2 vNewPos = this->GetPosition().xy() + m_vVelocity * TIME;

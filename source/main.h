@@ -27,6 +27,8 @@
 #ifndef _PAR_GUARD_MAIN_H_
 #define _PAR_GUARD_MAIN_H_
 
+// TODO 3: implement instancing: beverages, players, field
+
 
 // ****************************************************************
 // engine headers
@@ -40,7 +42,7 @@
 #define PLAYER_HEALTH       (10)
 #define PLAYER_SPEED        (18.0f * 0.3f)
 #define PLAYER_ACCELERATION (200.0f)
-#define PLAYER_BRAKE        (coreVector2(14.0f,8.0f))
+#define PLAYER_BRAKE        (coreVector2(16.0f,8.6f))
 #define PLAYER_SHOOT_POWER  (150.0f)
 #define PLAYER_SHOOT_RATE   (7.0f)
 #define PLAYER_CONTROL_NONE (0xFFu)

@@ -92,8 +92,8 @@ void CBullet::Move()
     m_vVelocity += coreVector2(0.0f,-0.3f) * (PLAYER_SPEED * PLAYER_ACCELERATION * TIME);
     if(!m_vVelocity.IsNull())
     {
-        m_vVelocity.x *= POW(1.0f - PLAYER_BRAKE.x * 0.03f * (1.0f/60.0f), TIME * 60.0f);
-        m_vVelocity.y *= POW(1.0f - PLAYER_BRAKE.y * 0.1f  * (1.0f/60.0f), TIME * 60.0f);
+        m_vVelocity.x *= coreMath::Friction(PLAYER_BRAKE.x * 0.026f, TIME);
+        m_vVelocity.y *= coreMath::Friction(PLAYER_BRAKE.y * 0.093f, TIME);
     }
 
     const coreFloat   T    = TIME * (PI * 5.0f);
