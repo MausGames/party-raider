@@ -76,11 +76,11 @@ enum eType : coreInt32
 
 // ****************************************************************
 // game headers
-#include "cField.h"
-#include "cPlayer.h"
-#include "cBullet.h"
-#include "cInterface.h"
-#include "cGame.h"
+#include "Field.h"
+#include "Player.h"
+#include "Bullet.h"
+#include "Interface.h"
+#include "Game.h"
 
 
 // ****************************************************************
